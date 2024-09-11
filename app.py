@@ -138,7 +138,7 @@ async def generate_bpmn(prompt:Prompt):
             "content": "generate the piperflow text for the below scenario\n\n" + prompt.prompt
         }
     ],
-    temperature=1,
+    temperature=0.2,
     max_tokens=1024,
     top_p=1,
     stream=False,
@@ -151,6 +151,3 @@ async def generate_bpmn(prompt:Prompt):
     print(piperFlowText)
 
     return {"pipeFlowImage":generate_diagram(piperFlowText),"pipeFlowText":piperFlowText}
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
